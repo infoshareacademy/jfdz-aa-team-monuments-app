@@ -1,32 +1,43 @@
 import React from 'react'
+import $ from 'jquery'
+
+import Header from './pages/Header'
+import List from './pages/List'
 
 export default class MonumentsList extends React.Component {
+    componentWillMount () {
+        var that = this;
+        $.ajax({
+            url: 'https://monuments-data.herokuapp.com/api/monuments',
+            success: function(data) {return that.setState({ monumentsData: data}) },
+            dataType: 'json'
+        });
+      }
 
     constructor(props) {
         super(props);
-
-        this.onClickChange = this.onClickChange.bind(this);
+        this.onClickShowList = this.onClickShowList.bind(this);
         
         this.state = {
             title: "Lista Zabytków Gdańska",
-            paragraph: "Sample Paragraph Element"
-        };
+            paragraph: "Chcesz zobaczyć listę gdańskich zabytków?",
+            monumentsData:[]
+        }
     }
 
-    onClickChange() {
+    onClickShowList() {
        this.setState({
-           paragraph: "Witamy w Gdańsku"
+           paragraph: "A kto by nie chciał?"
        })
     }
 
-    
     render() {
         return (
-         <div>
-             <h3> {this.state.title} </h3>
-             <p> {this.state.paragraph} </p>
-             <button onClick={this.onClickChange.bind(this)}> Click to change paragraph </button>
-         </div>
+            <div>
+                <Header title={this.state.title} paragraph={this.state.paragraph} onClickShowList={this.onClickShowList.bind(this)}/>
+                <List monumentsData={this.state.monumentsData}/>
+                {this.props.children}
+            </div>
         )
     }
 }
