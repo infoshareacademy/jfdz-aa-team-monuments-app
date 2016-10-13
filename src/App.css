@@ -18,6 +18,21 @@
   font-size: large;
 }
 
+.monuments-list-header {
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.monuments-list-container {
+  border-radius: 5px;
+}
+
+.monuments-list-img {
+  max-height: 200px;
+  width: auto;
+  margin: 15px
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

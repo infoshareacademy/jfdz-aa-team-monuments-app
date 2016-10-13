@@ -1,5 +1,6 @@
 import React from 'react'
 import $ from 'jquery'
+import {Grid} from 'react-bootstrap';
 
 import Header from './pages/Header'
 import List from './pages/List'
@@ -33,11 +34,11 @@ export default class MonumentsList extends React.Component {
 
     render() {
         return (
-            <div>
+            <Grid>
                 <Header title={this.state.title} paragraph={this.state.paragraph} onClickShowList={this.onClickShowList.bind(this)}/>
                 <List monumentsData={this.state.monumentsData}/>
                 {this.props.children}
-            </div>
+            </Grid>
         )
     }
 }
