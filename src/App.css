@@ -28,9 +28,9 @@
 }
 
 .monuments-list-img {
-  max-height: 200px;
+  max-height: 210px;
   width: auto;
-  margin: 15px
+  margin: 15px 5px;
 }
 
 @keyframes App-logo-spin {
