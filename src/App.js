@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import MonumentsList from './monuments-list/MonumentsList';
+import MonumentsIntro from './monuments-list/MonumentsIntro';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       < div className="App">
@@ -12,8 +12,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-
-          <MonumentsList />
+          
+        <MonumentsIntro />
+        {this.props.children}
       </div>
     );
   }

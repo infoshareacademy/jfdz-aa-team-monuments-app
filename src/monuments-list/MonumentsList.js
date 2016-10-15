@@ -2,7 +2,6 @@ import React from 'react'
 import $ from 'jquery'
 import {Grid} from 'react-bootstrap';
 
-import Header from './pages/Header'
 import List from './pages/List'
 
 export default class MonumentsList extends React.Component {
@@ -26,7 +25,6 @@ export default class MonumentsList extends React.Component {
     render() {
         return (
             <Grid>
-                <Header/>
                 <List monumentsData={this.state.monumentsData}/>
                 {this.props.children}
             </Grid>
