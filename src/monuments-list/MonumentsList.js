@@ -1,10 +1,19 @@
 import React from 'react'
 import $ from 'jquery'
 import {Grid} from 'react-bootstrap';
+import './MonumentsList.css'
 
-import List from './pages/List'
+import List from './components/List'
 
 export default class MonumentsList extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            monumentsData:[]
+        }
+    }
+
     componentWillMount () {
         var that = this;
         $.ajax({
@@ -13,14 +22,6 @@ export default class MonumentsList extends React.Component {
             dataType: 'json'
         });
       }
-
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            monumentsData:[]
-        }
-    }
 
     render() {
         return (

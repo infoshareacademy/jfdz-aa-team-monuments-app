@@ -2,7 +2,6 @@ import React from 'react'
 import { Button , Modal} from 'react-bootstrap'
 
 export default class List extends React.Component {
-    
     constructor(props) {
         super(props);
         this.onClickToogleDescription=this.onClickToogleDescription.bind(this);
