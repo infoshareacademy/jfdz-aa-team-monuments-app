@@ -18,20 +18,9 @@ export default class MonumentsIntro extends React.Component {
     }
 
     onClickShowList() {
-        if (this.state.displayList) {
-            this.setState({
-                displayList: false,
-                buttonText: "Pokaż Listę",
-                buttonUrl:"show-list"
-            })
-        }
-        else {
-            this.setState({
-                displayList: true,
-                buttonText: "Ukryj Listę",
-                buttonUrl:"/"
-            })
-        }
+        this.state.displayList
+            ? this.setState( { displayList: false, buttonText: "Pokaż Listę", buttonUrl:"show-list" })
+            : this.setState({ displayList: true, buttonText: "Ukryj Listę", buttonUrl:"/" })
     }
 
     render() {
