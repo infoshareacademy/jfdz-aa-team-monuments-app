@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 
 import MonumentsIntro from './monuments-intro/MonumentsIntro';
-import Footer from './footer/Footer'
+import Footer from './footer/Footer';
+import Map from './google-map-component/Map.js';
 
 class App extends React.Component {
   render() {
@@ -16,7 +17,8 @@ class App extends React.Component {
 
           <MonumentsIntro />
           {this.props.children}
-          
+          <Map />
+
           <Footer />
 
       </div>
