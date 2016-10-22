@@ -35,6 +35,7 @@ export default class Map extends React.Component {
                         google.maps.event.addListener(marker, 'click', (function(marker, i) {
                             return function() {
                                 infowindow.setContent(_this.locations[i].name);
+                                infowindow.setContent(_this.locations[i].description);
                                 infowindow.open(map, marker);
                             }
                         })(marker, i));
