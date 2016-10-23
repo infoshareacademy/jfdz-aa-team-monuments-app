@@ -21,7 +21,7 @@ export default class Map extends React.Component {
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     });
 
-                    var infowindow = new google.maps.InfoWindow();
+                    var infowindow = new google.maps.InfoWindow({maxWidth:300});
 
                     var marker, i;
 
@@ -33,8 +33,11 @@ export default class Map extends React.Component {
 
                         google.maps.event.addListener(marker, 'click', (function(marker, i) {
                             return function() {
-                                infowindow.setContent(_this.locations[i].name);
-                                infowindow.setContent(_this.locations[i].description);
+                                infowindow.setContent(`
+<h1>${_this.locations[i].name}</h1>
+<img src="${_this.locations[i].imageUrl}" />
+<div class="description">${_this.locations[i].description}</div>
+`);
                                 infowindow.open(map, marker);
                             }
                         })(marker, i));
