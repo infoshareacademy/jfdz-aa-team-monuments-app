@@ -16,8 +16,8 @@ export default class Map extends React.Component {
                     this.locations = data;
                     var google = window.google;
                     var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 14,
-                        center: new google.maps.LatLng(54.354111, 18.650111),
+                        zoom: 15,
+                        center: new google.maps.LatLng(54.351372, 18.653138),
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     });
 
