@@ -9,7 +9,6 @@ export default class Map extends React.Component {
 
     componentDidMount() {
 
-            var that = this;
             jQuery.ajax({
                 url: 'https://monuments-data.herokuapp.com/api/monuments',
                 success: function(data) {
