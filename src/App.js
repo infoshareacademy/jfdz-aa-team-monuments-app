@@ -5,6 +5,7 @@ import './App.css';
 import MonumentsIntro from './monuments-intro/MonumentsIntro';
 import Footer from './footer/Footer';
 import Map from './google-map-component/Map.js';
+import Login from './login/Login';
 
 class App extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class App extends React.Component {
           <MonumentsIntro />
           {this.props.children}
           <Map />
+          <Login />
           <Footer />
 
       </div>
