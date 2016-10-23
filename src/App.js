@@ -16,7 +16,6 @@ class App extends React.Component {
           <MonumentsIntro />
           {this.props.children}
           <Map />
-
           <Footer />
 
       </div>
