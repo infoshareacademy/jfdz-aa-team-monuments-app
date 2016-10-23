@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row , Col , Image, Button , Thumbnail } from 'react-bootstrap'
 
-import Details from './Details'
+import Details from '../details/Details'
 
 export default class List extends React.Component {
     constructor(props) {

@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Link} from 'react-router'
+import {Button} from 'react-bootstrap'
 import './App.css';
 
 import MonumentsIntro from './monuments-intro/MonumentsIntro';
@@ -12,12 +13,13 @@ class App extends React.Component {
     return (
       < div className="App">
         <div className="App-header">
+          <Link to='map' ><Button> Mapa </Button></Link>
+          <Link to='list' ><Button> Lista </Button></Link>
+          <Link to='login' ><Button> Login </Button></Link>
+
         </div>
 
-          <MonumentsIntro />
           {this.props.children}
-          <Map />
-          <Login />
           <Footer />
 
       </div>

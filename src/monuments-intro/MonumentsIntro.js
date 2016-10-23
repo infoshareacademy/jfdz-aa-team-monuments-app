@@ -13,17 +13,18 @@ export default class MonumentsIntro extends React.Component {
             title: "Lista Zabytków Gdańska",
             paragraph: "Chcesz zobaczyć listę gdańskich zabytków?",
             buttonText: "Pokaż Listę",
-            buttonUrl:"show-list"
+            buttonUrl:"/show-list"
         }
     }
 
     onClickShowList() {
         this.state.displayList
-            ? this.setState( { displayList: false, buttonText: "Pokaż Listę", buttonUrl:"show-list" })
-            : this.setState({ displayList: true, buttonText: "Ukryj Listę", buttonUrl:"/" })
+            ? this.setState( { displayList: false, buttonText: "Ukryj Listę", buttonUrl:"/list" })
+            : this.setState({ displayList: true, buttonText: "Pokaż listę", buttonUrl:"/show-list" })
     }
 
     render() {
+        console.log(this.props.children)
         return (
             <Grid>
                 <Row className="show-grid">
@@ -33,6 +34,10 @@ export default class MonumentsIntro extends React.Component {
                         <Link to={this.state.buttonUrl}>
                             <p><Button onClick={this.onClickShowList.bind(this)}> {this.state.buttonText}</Button></p>
                         </Link>
+                        <Link to={this.props.children !== null ? '/list' : '/show-list'}>
+                            {this.props.children !== null ? 'Ukryj' : 'Pokaż'}
+                            </Link>
+                        {this.props.children}
                     </Col>
                 </Row>
             </Grid>

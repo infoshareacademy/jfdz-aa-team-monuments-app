@@ -3,7 +3,7 @@ import $ from 'jquery'
 import {Grid} from 'react-bootstrap';
 import './MonumentsList.css'
 
-import List from './components/List'
+import List from './list/List'
 
 export default class MonumentsList extends React.Component {
     constructor(props) {
