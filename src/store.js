@@ -1,9 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
-const reducer = combineReducers({
-    //user: userReducer,
-    
+import monumentsIntroReducer from './monuments-intro/reducer'
+
+const reducer = combineReducers ({
+    toggleMonumentsList: monumentsIntroReducer
 })
 
 const store = createStore(

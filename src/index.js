@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router , Route, IndexRoute, browserHistory } from 'react-router';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router , Route, IndexRoute, browserHistory } from 'react-router'
 
-import App from './App';
+import App from './App'
 import MonumentsList from './monuments-list/MonumentsList'
 import Map from './google-map-component/Map'
 import Login from './login/Login'
 import MonumentsIntro from './monuments-intro/MonumentsIntro'
 
-import './index.css';
+import './index.css'
 
 import { Provider } from 'react-redux'
 import store from './store'
