@@ -1,10 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
-import monumentsIntroReducer from './monuments-intro/reducer'
+import monumentsIntroReducer from './monuments-list/intro/reducer'
+import monumentsListReducer from './monuments-list/reducer'
 
 const reducer = combineReducers ({
-    toggleMonumentsList: monumentsIntroReducer
+    toggleMonumentsList: monumentsIntroReducer,
+    monumentsListData: monumentsListReducer 
 })
 
 const store = createStore(
