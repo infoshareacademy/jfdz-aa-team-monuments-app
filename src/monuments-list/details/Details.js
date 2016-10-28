@@ -18,7 +18,7 @@ export default class List extends React.Component {
     render() {
         return (
             <div>
-                <Button bsStyle ="info" className="details-button" onClick={this.onClickToogleDescription} block> Pokaż opis </Button>
+                <Button bsStyle ="info" className="details-button" onClick={this.onClickToogleDescription}> Pokaż opis </Button>
 
                 <Modal show={this.state.showDescription} onHide={this.onClickToogleDescription} container={this} aria-labelledby="contained-modal-title" >
                     <Modal.Header closeButton>

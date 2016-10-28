@@ -18,7 +18,7 @@ export default class MonumentLocation extends React.Component {
     render() {
         return (
             <div>
-                <Button className="monument-location-button" bsStyle ="warning" onClick={this.onClickToggleLocation} block> {this.state.displayLocation ? 'usuń z mapy' : 'dodaj do mapy'} </Button>
+                <Button className="monument-location-button" bsStyle ="warning" onClick={this.onClickToggleLocation} > {this.state.displayLocation ? 'usuń z mapy' : 'dodaj do mapy'} </Button>
             </div>
         )
     }
