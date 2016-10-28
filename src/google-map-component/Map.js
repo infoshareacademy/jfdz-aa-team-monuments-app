@@ -35,7 +35,7 @@ export default class Map extends React.Component {
                             return function() {
                                 infowindow.setContent(`
 <h1>${_this.locations[i].name}</h1>
-<img src="${_this.locations[i].imageUrl}" />
+<img class="map-img" src="${_this.locations[i].imageUrl}" />
 <div class="description">${_this.locations[i].description}</div>
 `);
                                 infowindow.open(map, marker);

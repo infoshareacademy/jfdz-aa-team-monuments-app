@@ -21,12 +21,11 @@ const Intro = ({displayingList, showList, hideList}) => (
                 <p> Chcesz zobaczyć listę gdańskich zabytków? </p>
                 <p>
                     <Button onClick={() => !displayingList ? showList() : hideList()}>
-                    {!displayingList ? 'Pokaż listę' : 'Ukryj listę'}
+                        {!displayingList ? 'Pokaż listę' : 'Ukryj listę'}
                     </Button>
                 </p>
             </Col>
         </Row>
-  
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Intro)
