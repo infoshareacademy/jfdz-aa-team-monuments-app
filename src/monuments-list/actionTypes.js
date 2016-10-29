@@ -1,2 +1,6 @@
 export const REQUEST_MONUMENTS_LIST = 'monuments-list/REQUEST_MONUMENTS_LIST'
 export const RECEIVE_MONUMENTS_LIST = 'monument-list/RECEIVE_MONUMENTS_LIST'
+
+export const DISPLAY_MONUMENT_LOCATION =  'monument-list/DISPLAY_MONUMENT_LOCATION'
+export const HIDE_MONUMENT_LOCATION =  'monument-list/HIDE_MONUMENT_LOCATION'
+ 

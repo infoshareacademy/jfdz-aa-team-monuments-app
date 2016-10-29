@@ -10,14 +10,21 @@ import List from './list/List'
 const mapStateToProps = (state) => ({
     displayingList: state.toggleMonumentsList.displayingList,
     monuments: state.monumentsListData.monuments,
+    displayLocationState: state.monumentsListData.displayLocationState
 })
 
-const MonumentsList = ({displayingList, monuments}) => (
+const MonumentsList = ({
+    displayingList,
+    monuments
+}) => (
     <Grid>
         <Intro />
         <UserMap />
-        <List />
+        <List
+            displayingList={displayingList}
+            monuments={monuments}
+        />
     </Grid>
 )
 
-export default connect(mapStateToProps)(MonumentsList)
+export default connect(mapStateToProps )(MonumentsList)

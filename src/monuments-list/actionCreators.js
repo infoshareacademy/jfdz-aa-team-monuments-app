@@ -1,5 +1,7 @@
 import { REQUEST_MONUMENTS_LIST } from './actionTypes'
 import { RECEIVE_MONUMENTS_LIST } from './actionTypes'
+import { DISPLAY_MONUMENT_LOCATION } from './actionTypes'
+import { HIDE_MONUMENT_LOCATION } from './actionTypes'
 import fetch from 'isomorphic-fetch'
 
 function requestMonumentsList() {
@@ -21,5 +23,18 @@ export function fetchMonuments() {
         return fetch(`https://monuments-data.herokuapp.com/api/monuments`)
             .then(response => response.json())
             .then(monuments => dispatch(receiveMonumentsList(monuments)))
+    }
+}
+
+export function displayMonumentLocation(monumentLocation) {
+    return {
+        type: DISPLAY_MONUMENT_LOCATION,
+        monumentLocation: monumentLocation
+    }
+}
+
+export function hideMonumentLocation() {
+    return {
+        type: HIDE_MONUMENT_LOCATION
     }
 }
