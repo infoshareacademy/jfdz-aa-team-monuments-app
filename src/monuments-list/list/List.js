@@ -7,7 +7,8 @@ import MonumentLocation from '../monument-location/MonumentLocation'
 
 export default ({
     displayingList,
-    monuments}) => (
+    monuments
+}) => (
     <Row className="show-grid list-monuments">
         {displayingList ? monuments.map(
                 monument =>
