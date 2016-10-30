@@ -1,0 +1,15 @@
+.monuments-list-header {
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.monuments-list-container {
+    border-radius: 5px;
+}
+
+.monuments-list-img {
+    max-height: 210px;
+    width: auto;
+    margin: 15px 5px;
+}
+

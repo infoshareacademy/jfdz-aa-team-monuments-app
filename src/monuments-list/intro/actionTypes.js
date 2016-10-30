@@ -1,0 +1,2 @@
+export const SHOW_MONUMENTS_LIST = 'intro/SHOW_MONUMENTS_LIST'
+export const HIDE_MONUMENTS_LIST = 'intro/HIDE_MONUMENTS_LIST'

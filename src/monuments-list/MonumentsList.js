@@ -1,34 +1,30 @@
 import React from 'react'
-import $ from 'jquery'
-import {Grid} from 'react-bootstrap';
+import { connect } from 'react-redux'
+import { Grid } from 'react-bootstrap'
 import './MonumentsList.css'
 
+import Intro from './intro/Intro'
+import UserMap from './user-map/UserMap'
 import List from './list/List'
 
-export default class MonumentsList extends React.Component {
-    constructor(props) {
-        super(props);
+const mapStateToProps = (state) => ({
+    displayingList: state.toggleMonumentsList.displayingList,
+    monuments: state.monumentsListData.monuments,
+    displayLocationState: state.monumentsListData.displayLocationState
+})
 
-        this.state = {
-            monumentsData:[]
-        }
-    }
+const MonumentsList = ({
+    displayingList,
+    monuments
+}) => (
+    <Grid>
+        <Intro />
+        <UserMap />
+        <List
+            displayingList={displayingList}
+            monuments={monuments}
+        />
+    </Grid>
+)
 
-    componentWillMount () {
-        var that = this;
-        $.ajax({
-            url: 'https://monuments-data.herokuapp.com/api/monuments',
-            success: function(data) {return that.setState({ monumentsData: data}) },
-            dataType: 'json'
-        });
-      }
-
-    render() {
-        return (
-            <Grid>
-                <List monumentsData={this.state.monumentsData}/>
-                {this.props.children}
-            </Grid>
-        )
-    }
-}
+export default connect(mapStateToProps )(MonumentsList)

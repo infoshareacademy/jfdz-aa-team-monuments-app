@@ -1,0 +1,3 @@
+export const DISPLAY_MONUMENT_LOCATION =  'monument-location/DISPLAY_MONUMENT_LOCATION'
+export const HIDE_MONUMENT_LOCATION =  'monument-location/HIDE_MONUMENT_LOCATION'
+ 
