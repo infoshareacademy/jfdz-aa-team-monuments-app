@@ -10,7 +10,6 @@ import List from './list/List'
 const mapStateToProps = (state) => ({
     displayingList: state.toggleMonumentsList.displayingList,
     monuments: state.monumentsListData.monuments,
-    displayLocationState: state.monumentsListData.displayLocationState
 })
 
 const MonumentsList = ({

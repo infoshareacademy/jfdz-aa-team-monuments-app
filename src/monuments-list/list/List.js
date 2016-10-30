@@ -18,7 +18,7 @@ export default ({
                             <Image src={monument.imageUrl} alt={monument.name} className="monuments-list-img" thumbnail rounded/>
                             
                             <Details description={monument.description} name={monument.name} />
-                            <MonumentLocation lat={monument.lat} lon={monument.lon}/>
+                            <MonumentLocation currentLat={monument.lat} currentLon={monument.lon}/>
                             
                         </Thumbnail>
                     </Col>
