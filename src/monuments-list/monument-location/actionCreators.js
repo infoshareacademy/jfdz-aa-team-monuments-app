@@ -1,12 +1,11 @@
 import { DISPLAY_MONUMENT_LOCATION } from './actionTypes'
 import { HIDE_MONUMENT_LOCATION } from './actionTypes'
 
-
-export function displayMonumentLocation(lat , lon) {
+export function displayMonumentLocation(monumentLat , monumentLon) {
     return {
         type: DISPLAY_MONUMENT_LOCATION,
-        lat: lat,
-        lon: lon
+        monumentLat: monumentLat,
+        monumentLon: monumentLon
     }
 }
 

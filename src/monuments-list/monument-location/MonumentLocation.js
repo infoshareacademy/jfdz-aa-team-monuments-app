@@ -15,15 +15,14 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const MonumentLocation = ({
-    currentLat,
-    currentLon,
+    currentMonumentLat,
+    currentMonumentLon,
     displayMonumentLocation , 
     hideMonumentLocation 
 }) => (
     <div>
-        <Button className="monument-location-button" bsStyle ="warning" onClick={() => displayMonumentLocation(currentLat , currentLon) } >Dodaj do mapy</Button>
-
-        <Button className="monument-location-button" bsStyle ="danger" onClick={() => hideMonumentLocation() }>Usuń mapy</Button>
+        <Button className="monument-location-button" bsStyle ="warning" onClick={() => displayMonumentLocation(currentMonumentLat , currentMonumentLon) } >Dodaj do mapy</Button>
+        <Button className="monument-location-button" bsStyle ="danger" onClick={() => hideMonumentLocation() }>Usuń z mapy</Button>
     </div>
 )
 

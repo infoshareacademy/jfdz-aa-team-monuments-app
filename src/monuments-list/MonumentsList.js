@@ -9,20 +9,17 @@ import List from './list/List'
 
 const mapStateToProps = (state) => ({
     displayingList: state.toggleMonumentsList.displayingList,
-    monuments: state.monumentsListData.monuments,
+    monuments: state.monumentsListData.monuments
 })
 
 const MonumentsList = ({
     displayingList,
-    monuments
+    monuments,
 }) => (
     <Grid>
         <Intro />
         <UserMap />
-        <List
-            displayingList={displayingList}
-            monuments={monuments}
-        />
+        <List displayingList={displayingList} monuments={monuments} />
     </Grid>
 )
 

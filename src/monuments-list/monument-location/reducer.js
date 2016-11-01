@@ -4,8 +4,13 @@ import {
 } from './actionTypes'
 
 const initialState = {
-    lat: null ,
-    lon: null
+    userLocation: {
+        lat: 54.351372,
+        lon: 18.653138
+    },
+    monumentLocation: {
+
+    }
 }
 
 export default (state = initialState, action) => {
@@ -13,14 +18,15 @@ export default (state = initialState, action) => {
 
         case DISPLAY_MONUMENT_LOCATION:
             return Object.assign({}, state, {
-                lat: action.lat,
-                lon: action.lon
+                monumentLocation: {
+                    lat: action.monumentLat,
+                    lon: action.monumentLon
+                }
             })
 
         case HIDE_MONUMENT_LOCATION:
             return Object.assign({}, state, {
-                lat: null,
-                lon: null
+                monumentLocation: { }
             })
         
         default:
