@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button , Modal} from 'react-bootstrap'
+import { Button , Glyphicon , Modal} from 'react-bootstrap'
 import './Details.css'
 
 export default class List extends React.Component {
@@ -17,8 +17,8 @@ export default class List extends React.Component {
 
     render() {
         return (
-            <div>
-                <Button bsStyle ="info" className="details-button" onClick={this.onClickToogleDescription}> Pokaż opis </Button>
+            <div className="details-column">
+                <Button bsStyle ="info" className="details-button" onClick={this.onClickToogleDescription}><Glyphicon glyph="blackboard"/> opis </Button>
 
                 <Modal show={this.state.showDescription} onHide={this.onClickToogleDescription} container={this} aria-labelledby="contained-modal-title" >
                     <Modal.Header closeButton>
@@ -28,7 +28,7 @@ export default class List extends React.Component {
                         <p>{this.props.description}</p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button onClick={this.onClickToogleDescription}>Zamknij</Button>
+                        <Button bsStyle="info" onClick={this.onClickToogleDescription}>Zamknij</Button>
                     </Modal.Footer>
                 </Modal>
             </div>

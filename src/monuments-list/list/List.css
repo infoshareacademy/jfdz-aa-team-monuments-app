@@ -7,9 +7,15 @@
     border-radius: 5px;
 }
 
+.monuments-list-container h4 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
 .monuments-list-img {
-    max-height: 210px;
+    max-height: 150px;
     width: auto;
-    margin: 15px 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 

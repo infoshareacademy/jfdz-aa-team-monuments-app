@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect}  from 'react-redux'
 import { displayMonumentLocation , hideMonumentLocation } from './actionCreators'
-import { Button } from 'react-bootstrap'
+import { Button , Glyphicon } from 'react-bootstrap'
 import './MonumentLocation.css'
 
 const mapStateToProps = (state) => ({
@@ -20,9 +20,13 @@ const MonumentLocation = ({
     displayMonumentLocation , 
     hideMonumentLocation 
 }) => (
-    <div>
-        <Button className="monument-location-button" bsStyle ="warning" onClick={() => displayMonumentLocation(currentMonumentLat , currentMonumentLon) } >Dodaj do mapy</Button>
-        <Button className="monument-location-button" bsStyle ="danger" onClick={() => hideMonumentLocation() }>Usuń z mapy</Button>
+    <div className="monument-location-column">
+        <Button className="monument-location-button" bsStyle ="warning" onClick={() => displayMonumentLocation(currentMonumentLat , currentMonumentLon) } >
+            <Glyphicon glyph="map-marker" />
+        </Button>
+        <Button className="monument-location-button" bsStyle ="danger" onClick={() => hideMonumentLocation() }>
+            <Glyphicon glyph="trash" />
+        </Button>
     </div>
 )
 

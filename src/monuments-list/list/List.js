@@ -12,14 +12,14 @@ export default ({
     <Row className="show-grid list-monuments">
         {displayingList ? monuments.map(
                 monument =>
-                    <Col key={monument.id} xs={12} sm={6} lg={4} className="monuments-list-container">
+                    <Col key={monument.id} xs={12} sm={6} lg={3} className="monuments-list-container">
                         <Thumbnail>
                             <h4>{monument.name}</h4>
-                            <Image src={monument.imageUrl} alt={monument.name} className="monuments-list-img" thumbnail rounded/>
-                            
+                            <Image src={monument.imageUrl} alt={monument.name} className="monuments-list-img center-block" thumbnail rounded />
+
                             <Details description={monument.description} name={monument.name} />
                             <MonumentLocation currentMonumentLat={monument.lat} currentMonumentLon={monument.lon}/>
-                            
+
                         </Thumbnail>
                     </Col>
                 )
