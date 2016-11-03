@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import createMap from './utilities'
 
 const mapStateToProps = (state) => ({
+    monumentLocation: state.monumentLocationData.monumentLocation ,
     monumentLat: state.monumentLocationData.monumentLocation.lat ,
     monumentLon: state.monumentLocationData.monumentLocation.lon,
     userLat: state.monumentLocationData.userLocation.lat,
@@ -14,15 +15,20 @@ class UserMap extends React.Component {
     constructor(props) {
         super(props);
     }
-    componentDidMount() {
-        createMap.createUserMap(this.props.userLon, this.props.userLat )
-    }
     
+    componentDidMount() {
+        this.props.monumentLocation.hasOwnProperty('lat')
+            ? createMap.createMonumentMap(this.props.monumentLat, this.props.monumentLon, this.props.userLat, this.props.userLon )
+            : createMap.createUserMap(this.props.userLon, this.props.userLat)
+    }
+
+    componentWillReceiveProps(newProps) {
+        createMap.createMonumentMap(newProps.monumentLat, newProps.monumentLon, this.props.userLat, this.props.userLon )
+    }
+
     render() {
         return (
-            <div id="user-map" className="mapContainer">
-
-            </div>
+            <div id="user-map" className="mapContainer"> </div>
         )
     }
 }

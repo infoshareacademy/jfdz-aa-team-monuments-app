@@ -8,9 +8,7 @@ const initialState = {
         lat: 54.351372,
         lon: 18.653138
     },
-    monumentLocation: {
-
-    }
+    monumentLocation: { }
 }
 
 export default (state = initialState, action) => {
@@ -26,7 +24,9 @@ export default (state = initialState, action) => {
 
         case HIDE_MONUMENT_LOCATION:
             return Object.assign({}, state, {
-                monumentLocation: { }
+                monumentLocation: {
+
+                }
             })
         
         default:

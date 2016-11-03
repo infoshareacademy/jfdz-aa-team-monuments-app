@@ -23,7 +23,7 @@ const createMap = {
 
         let userMarker;
         userMarker = new google.maps.Marker({
-            position: new google.maps.LatLng( userLon, userLat ),
+            position: new google.maps.LatLng( userLat, userLon ),
             map: userMap
         });
 
