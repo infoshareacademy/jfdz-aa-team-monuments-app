@@ -4,7 +4,8 @@ const createMap = {
         const userMap = new google.maps.Map(document.getElementById('user-map'), {
             zoom: 15,
             center: new google.maps.LatLng(userLon, userLat),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            scrollwheel: false
         });
         let userMarker;
         userMarker = new google.maps.Marker({
@@ -18,7 +19,8 @@ const createMap = {
         const userMap = new google.maps.Map(document.getElementById('user-map'), {
             zoom: 15,
             center: new google.maps.LatLng(monumentLon, monumentLat),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            scrollwheel: false
         });
 
         let userMarker;
@@ -32,7 +34,8 @@ const createMap = {
         monumentMarker = new google.maps.Marker({
             position: new google.maps.LatLng( parseFloat(monumentLon),parseFloat(monumentLat) ),
             map: userMap,
-            icon: monumentIcon
+            icon: monumentIcon,
+            scrollwheel: false
         });
     }
 }
