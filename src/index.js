@@ -6,7 +6,7 @@ import App from './App';
 import MonumentsList from './monuments-list/MonumentsList'
 import Map from './google-map-component/Map'
 import Login from './login/Login'
-import MonumentsIntro from './monuments-intro/MonumentsIntro'
+import MonumentsIntro from './monuments-list/intro/Intro'
 
 import './index.css';
 
