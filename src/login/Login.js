@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux' 
 import './Login.css'
-import GoogleLogin from 'react-google-login'
 import { loginSuccess, loginFailure, logOut } from './actionCreators';
+import GoogleLogin from 'react-google-login'
 
 const mapStateToProps = (state) => ({
     userData: state.login.userData,
