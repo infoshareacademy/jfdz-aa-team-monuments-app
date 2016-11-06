@@ -1,24 +1,35 @@
 import React from 'react'
 import './UserMap.css'
+import { connect } from 'react-redux'
+import createMap from './utilities'
 
-export default class UserMap extends React.Component {
+const mapStateToProps = (state) => ({
+    monumentLocation: state.monumentLocationData.monumentLocation ,
+    monumentLat: state.monumentLocationData.monumentLocation.lat ,
+    monumentLon: state.monumentLocationData.monumentLocation.lon,
+    userLat: state.monumentLocationData.userLocation.lat,
+    userLon: state.monumentLocationData.userLocation.lon
+})
+
+class UserMap extends React.Component {
     constructor(props) {
         super(props);
     }
-
-    componentDidMount() {
-            const google = window.google;
-            const map = new google.maps.Map(document.getElementById('user-map'), {
-                zoom: 16,
-                center: new google.maps.LatLng(54.351372, 18.653138),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
-        }
     
+    componentDidMount() {
+        this.props.monumentLocation.hasOwnProperty('lat')
+            ? createMap.createMonumentMap(this.props.monumentLat, this.props.monumentLon, this.props.userLat, this.props.userLon )
+            : createMap.createUserMap(this.props.userLon, this.props.userLat)
+    }
+
+    componentWillReceiveProps(newProps) {
+        createMap.createMonumentMap(newProps.monumentLat, newProps.monumentLon, this.props.userLat, this.props.userLon )
+    }
+
     render() {
         return (
-            <div id="user-map" className="mapContainer">
-            </div>
+            <div id="user-map" className="mapContainer"> </div>
         )
     }
 }
+export default connect(mapStateToProps)(UserMap)

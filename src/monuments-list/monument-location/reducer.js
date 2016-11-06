@@ -1,9 +1,14 @@
 import {
     DISPLAY_MONUMENT_LOCATION , 
-    HIDE_MONUMENT_LOCATION } from './actionTypes'
+    HIDE_MONUMENT_LOCATION 
+} from './actionTypes'
 
 const initialState = {
-    displayLocationState: false
+    userLocation: {
+        lat: 54.351372,
+        lon: 18.653138
+    },
+    monumentLocation: { }
 }
 
 export default (state = initialState, action) => {
@@ -11,12 +16,17 @@ export default (state = initialState, action) => {
 
         case DISPLAY_MONUMENT_LOCATION:
             return Object.assign({}, state, {
-                displayLocationState: true
+                monumentLocation: {
+                    lat: action.monumentLat,
+                    lon: action.monumentLon
+                }
             })
 
         case HIDE_MONUMENT_LOCATION:
             return Object.assign({}, state, {
-                displayLocationState: false
+                monumentLocation: {
+
+                }
             })
         
         default:
