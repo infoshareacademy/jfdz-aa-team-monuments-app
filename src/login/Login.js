@@ -1,33 +1,30 @@
 import React from 'react'
+import { connect } from 'react-redux' 
 import './Login.css'
-import {Button} from 'react-bootstrap'
+import GoogleLogin from 'react-google-login'
+import { loginSuccess, loginFailure, logOut } from './actionCreators';
 
-export default class Login extends React.Component {
-    constructor(props) {
-        super(props);
+const mapStateToProps = (state) => ({
+    userData: state.login.userData,
+    loggedIn: state.login.loggedIn,
+    loginSuccess: {}
+})
 
-        this.onClickChangeButtonText = this.onClickChangeButtonText.bind(this);
+const mapDispatchToProps = (dispatch) => ({
+    loginSuccess: (userData) => dispatch(loginSuccess(userData.profileObj)),
+    loginFailure: () => dispatch(loginFailure()),
+    logOut: () => dispatch(logOut())
+})
 
-        this.state = {
-           buttonText: "login"
-        }
-    }
-
-    onClickChangeButtonText() {
-        this.state.buttonText === "login"
-        ? this.setState({buttonText:"logout"})
-        : this.setState({buttonText:"login"})
-
-    }
-
-
-    render() {
-        return(
-            <div className="Login-container">
-                <h3>Login</h3>
-                <p>Welcome</p>
-                <Button onClick={this.onClickChangeButtonText}>{this.state.buttonText}</Button>
-            </div>
-        )
-    }
-}
+const Login = ({ userData, loggedIn, loginSuccess }) => (
+     <div>
+         <h1>Login</h1>
+              <GoogleLogin
+                   clientId="125511495520-i1vk2u8c4f9nk6bmtb5i8evculbqfvur.apps.googleusercontent.com"
+                   buttonText="Log in"
+                   onSuccess={(x) => loginSuccess(x)}
+                   onFailure={(x) => alert(x)}
+              />
+     </div>
+)
+export default connect(mapStateToProps,mapDispatchToProps)(Login)
