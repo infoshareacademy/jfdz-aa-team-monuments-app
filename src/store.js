@@ -2,8 +2,15 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import loginReducer from './login/reducer'
 
-const reducer = combineReducers({
-    login: loginReducer
+import monumentsIntroReducer from './monuments-list/intro/reducer'
+import monumentsListReducer from './monuments-list/reducer'
+import monumentLocationReducer from './monuments-list/monument-location/reducer'
+
+const reducer = combineReducers ({
+    login: loginReducer,
+    toggleMonumentsList: monumentsIntroReducer,
+    monumentsListData: monumentsListReducer,
+    monumentLocationData: monumentLocationReducer
 })
 
 const store = createStore(
