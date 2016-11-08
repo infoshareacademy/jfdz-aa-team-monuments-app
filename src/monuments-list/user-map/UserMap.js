@@ -28,7 +28,9 @@ class UserMap extends React.Component {
 
     render() {
         return (
-            <div id="user-map" className="mapContainer"> </div>
+            <div>
+                <div id="user-map" className="mapContainer"> </div>
+            </div>
         )
     }
 }
