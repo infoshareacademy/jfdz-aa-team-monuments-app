@@ -12,9 +12,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     loginSuccess: (userData) => {
-        dispatch(loginSuccess(userData.profileObj));
         dispatch(persistUserData(userData.profileObj));
-        //dispatch(...)
     },
     loginFailure: () => dispatch(loginFailure()),
     logOut: () => dispatch(logOut())
