@@ -27,14 +27,16 @@ const mapDispatchToProps = (dispatch)=> ({
     },
 
     addToVisited: (userId, monumentId, monuments) => {
-        let newMonumentsList = monuments.indexOf(monumentId) === -1 ? monuments.concat([monumentId]) : console.log('Already on your list');
+        let newMonumentsList =
+            monuments.indexOf(monumentId.toString()) === -1
+                ? monuments.concat([monumentId])
+                : monuments.filter(monument=> monument !== monumentId.toString());
         let userData = {
             visitedMonuments: newMonumentsList
         };
         dispatch(updateUserData(userId, userData));
     }
-    
-    
+
 })
 
 const UserButtons = ({

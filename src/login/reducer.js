@@ -7,9 +7,11 @@ import {
 
 const initialState = {
     userData: {
-        email: '',
-        userMonuments: [''],
-        visitedMonuments: ['']
+        firstName: '',
+        lastName: '',
+        userId: '',
+        userMonuments: [],
+        visitedMonuments: []
     },
     loggedIn: false
 }

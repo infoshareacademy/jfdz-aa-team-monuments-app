@@ -10,7 +10,13 @@ import fetch from 'isomorphic-fetch'
 export function loginSuccess (userData) {
     return {
         type: LOGIN_SUCCESS,
-        userData: userData
+        userData: {
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            userId: userData.userId,
+            userMonuments: userData.userMonuments || [],
+            visitedMonuments: userData.visitedMonuments || []
+        }
     }
 }
 
@@ -90,8 +96,8 @@ export function persistUserData(userData) {
                     firstName: userData.givenName,
                     lastName: userData.familyName,
                     userId: userData.email,
-                    userMonuments: userData.userMonuments,
-                    visitedMonuments: userData.visitedMonuments
+                    userMonuments: userData.userMonuments || [],
+                    visitedMonuments: userData.visitedMonuments || []
                 })
             }).then(response => {
                 console.log('request succeeded with JSON response', response.json());
