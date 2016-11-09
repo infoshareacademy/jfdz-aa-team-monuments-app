@@ -4,7 +4,7 @@ import { Grid } from 'react-bootstrap'
 import './MonumentsList.css'
 
 import Intro from './intro/Intro'
-import UserMap from './user-map/UserMap'
+import MonumentMap from './monument-map/MonumentMap'
 import List from './list/List'
 
 const mapStateToProps = (state) => ({
@@ -18,7 +18,7 @@ const MonumentsList = ({
 }) => (
     <Grid>
         <Intro />
-        <UserMap />
+        <MonumentMap />
         <List displayingList={displayingList} monuments={monuments} />
     </Grid>
 )

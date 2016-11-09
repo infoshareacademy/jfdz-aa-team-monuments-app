@@ -15,14 +15,14 @@ export default ({
                         <Thumbnail>
                             <h4>{monument.name}</h4>
                             <Image src={monument.imageUrl} alt={monument.name} className="monuments-list-img center-block" thumbnail rounded />
-
+                            
                             <Details
                                 lat={monument.lat}
                                 lon={monument.lon}
                                 description={monument.description}
                                 name={monument.name}
                             />
-                            
+
                         </Thumbnail>
                     </Col>
                 )

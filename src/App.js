@@ -13,6 +13,7 @@ class App extends React.Component {
           <Link to='/' ><Button> #Home </Button></Link>
           <Link to='map' ><Button> Mapa </Button></Link>
           <Link to='list' ><Button> Lista </Button></Link>
+          <Link to='user-monuments' ><Button> Moje </Button></Link>
           <Link to='login' ><Button> Login </Button></Link>
         </div>
 

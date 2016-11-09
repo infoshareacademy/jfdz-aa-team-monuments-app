@@ -9,6 +9,7 @@ import App from './App'
 import MonumentsList from './monuments-list/MonumentsList'
 import Map from './google-map-component/Map'
 import Login from './login/Login'
+import UserMonuments from './user-monuments/UserMonuments'
 
 import { fetchMonuments } from './monuments-list/actionCreators'
 
@@ -21,6 +22,7 @@ ReactDOM.render(
                 <IndexRoute component={Map} />
                 <Route path="map" component={Map}> </Route>
                 <Route path="list" component={MonumentsList} onEnter={() => store.dispatch(fetchMonuments())}> </Route>
+                <Route path="user-monuments" component={UserMonuments} onEnter={() => store.dispatch(fetchMonuments())}> </Route>
                 <Route path="login" component={Login}> </Route>
             </Route>
         </Router>
