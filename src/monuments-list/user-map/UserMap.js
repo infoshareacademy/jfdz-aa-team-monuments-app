@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
     userLon: state.monumentLocationData.userLocation.lon
 })
 
-class UserMap extends React.Component {
+class MonumentMap extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -28,8 +28,10 @@ class UserMap extends React.Component {
 
     render() {
         return (
-            <div id="user-map" className="mapContainer"> </div>
+            <div>
+                <div id="monument-map" className="mapContainer"> </div>
+            </div>
         )
     }
 }
-export default connect(mapStateToProps)(UserMap)
+export default connect(mapStateToProps)(MonumentMap)

@@ -16,8 +16,10 @@ const createMap = {
 
     createMonumentMap : function(monumentLat, monumentLon, userLat, userLon) {
         const google = window.google;
+        const directionsService = new google.maps.DirectionsService();
+        const directionsDisplay = new google.maps.DirectionsRenderer({ suppressMarkers: true });
+
         const userMap = new google.maps.Map(document.getElementById('user-map'), {
-            zoom: 15,
             center: new google.maps.LatLng(monumentLon, monumentLat),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false
