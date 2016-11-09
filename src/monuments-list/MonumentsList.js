@@ -4,7 +4,7 @@ import { Grid } from 'react-bootstrap'
 import './MonumentsList.css'
 
 import Intro from './intro/Intro'
-import MonumentMap from './monument-map/MonumentMap'
+import MonumentMap from './user-map/UserMap'
 import List from './list/List'
 
 const mapStateToProps = (state) => ({

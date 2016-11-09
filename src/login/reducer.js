@@ -8,8 +8,8 @@ import {
 const initialState = {
     userData: {
         email: '',
-        userMonuments: [],
-        visitedMonuments: []
+        userMonuments: [''],
+        visitedMonuments: ['']
     },
     loggedIn: false
 }

@@ -6,36 +6,56 @@ import './UserButtons.css'
 
 const mapStateToProps = (state)=> ({
     userMonuments: state.login.userData.userMonuments,
-    email: state.login.userData.userId
+    visitedMonuments: state.login.userData.visitedMonuments,
+    userId: state.login.userData.userId
 })
 
 const mapDispatchToProps = (dispatch)=> ({
-    addMonument: (email, monumentId, monuments) => {
-        console.log('addMonument', email, monumentId, monuments);
-        let newMonuments = monuments.concat([monumentId]);
+    addMonument: (userId, monumentId, monuments) => {
+        let newMonumentsList = monuments.indexOf(monumentId.toString()) === -1 ? monuments.concat([monumentId]) : console.log('Already on your list');
         let userData = {
-            userMonuments: newMonuments
+            userMonuments: newMonumentsList
         };
-        dispatch(updateUserData(email, userData))
+        dispatch(updateUserData(userId, userData));
+    },
+    removeMonument: (userId, monumentId, monuments) => {
+        let newMonumentsList = monuments.filter(monument=> monument !== monumentId.toString());
+        let userData = {
+            userMonuments: newMonumentsList
+        };
+        dispatch(updateUserData(userId, userData));
+    },
+
+    addToVisited: (userId, monumentId, monuments) => {
+        let newMonumentsList = monuments.indexOf(monumentId) === -1 ? monuments.concat([monumentId]) : console.log('Already on your list');
+        let userData = {
+            visitedMonuments: newMonumentsList
+        };
+        dispatch(updateUserData(userId, userData));
     }
+    
+    
 })
 
 const UserButtons = ({
+    userId,
     userMonuments,
-    email,
+    visitedMonuments,
     currentMonumentId,
-    addMonument
+    addMonument,
+    removeMonument,
+    addToVisited
 })=> (
     <div>
-        <Button className="monument-user-buttons" bsStyle ="warning" onClick={()=> addMonument(email, currentMonumentId, userMonuments) } >
+        <Button className="monument-user-buttons" bsStyle ="warning" onClick={() => addMonument(userId, currentMonumentId, userMonuments) } >
             <Glyphicon glyph="plus" />
         </Button>
             
-        <Button className="monument-user-buttons" bsStyle ="info" onClick={()=> console.log('Usuń') } >
+        <Button className="monument-user-buttons" bsStyle ="info" onClick={() => removeMonument(userId, currentMonumentId, userMonuments) } >
             <Glyphicon glyph="minus" />
         </Button>
     
-        <Button className="monument-user-buttons" bsStyle ="danger" onClick={()=> console.log('Ulubione') } >
+        <Button className="monument-user-buttons" bsStyle ="danger" onClick={() => addToVisited(userId, currentMonumentId, visitedMonuments) } >
             <Glyphicon glyph="ok" />
         </Button>
     </div>
