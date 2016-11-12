@@ -3,17 +3,21 @@ import { connect } from 'react-redux'
 import { Grid } from 'react-bootstrap'
 import './UserMonuments.css'
 
+import Filters from './filters/Filters'
 import UserList from './user-list/UserList'
 
 const mapStateToProps = (state) => ({
-    monuments: state.monumentsListData.monuments
+    monuments: state.monumentsListData.monuments,
+    currentList: state.monumentsFilter.currentList
 })
 
 const UserMonuments = ({
     monuments,
+    currentList,
 }) => (
     <Grid>
-        <UserList monuments={monuments} />
+        <Filters />
+        <UserList currentList={currentList} />
     </Grid>
 )
 

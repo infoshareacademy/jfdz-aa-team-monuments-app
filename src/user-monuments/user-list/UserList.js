@@ -4,12 +4,11 @@ import './UserList.css'
 
 import UserButtons from '../user-buttons/UserButtons'
 
-
 export default ({
-    monuments
+    currentList
 }) => (
     <Row className="show-grid list-monuments">
-        {monuments.map(
+        {currentList.map(
             monument =>
                 <Col key={monument.id} xs={12} sm={6} lg={3} className="monuments-list-container">
                     <Thumbnail>

@@ -1,2 +1,0 @@
-export const ADD_MONUMENT_TO_LIST = 'user-buttons/ADD_MONUMENT_TO_LIST'
-export const REMOVE_MONUMENT_FROM_LIST = 'user-buttons/REMOVE_MONUMENT_FROM_LIST'

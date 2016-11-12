@@ -36,7 +36,6 @@ const mapDispatchToProps = (dispatch)=> ({
         };
         dispatch(updateUserData(userId, userData));
     }
-
 })
 
 const UserButtons = ({
