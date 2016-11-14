@@ -5,3 +5,8 @@
 .filter-buttons button {
     margin: 5px;
 }
+
+.user-monument-active {
+    background-color: #f0f0f0;
+
+}
