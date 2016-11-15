@@ -1,6 +1,6 @@
 import {
     DISPLAY_MONUMENT_LOCATION , 
-    HIDE_MONUMENT_LOCATION 
+    HIDE_MONUMENT_LOCATION ,
 } from './actionTypes'
 
 const initialState = {

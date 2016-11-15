@@ -5,7 +5,7 @@ import {
 
 const initialState = {
     monuments: [],
-    isLoading: false,
+    isLoading: false
 }
 
 export default (state = initialState, action) => {

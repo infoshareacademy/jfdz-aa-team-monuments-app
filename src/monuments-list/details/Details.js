@@ -2,6 +2,8 @@ import React from 'react'
 import { Button , Glyphicon , Modal} from 'react-bootstrap'
 import './Details.css'
 
+import MonumentLocation from '../monument-location/MonumentLocation'
+
 export default class List extends React.Component {
     constructor(props) {
         super(props);
@@ -14,11 +16,11 @@ export default class List extends React.Component {
     onClickToogleDescription() {
         this.state.showDescription ? this.setState({showDescription: false}) : this.setState({showDescription:true})
     }
-
     render() {
         return (
             <div className="details-column">
                 <Button bsStyle ="info" className="details-button" onClick={this.onClickToogleDescription}><Glyphicon glyph="blackboard"/> opis </Button>
+                <MonumentLocation currentMonumentLat={this.props.lat} currentMonumentLon={this.props.lon}/>
 
                 <Modal show={this.state.showDescription} onHide={this.onClickToogleDescription} container={this} aria-labelledby="contained-modal-title" >
                     <Modal.Header closeButton>
