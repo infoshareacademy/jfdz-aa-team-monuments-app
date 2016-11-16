@@ -3,20 +3,20 @@ import {SHOW_ALL_MONUMENTS , SHOW_USER_MONUMENTS , SHOW_VISITED_MONUMENTS } from
 export function showAllMonuments(monuments) {
     return {
         type: SHOW_ALL_MONUMENTS,
-        monuments: monuments
+        monuments: monuments.map(monument => monument.id.toString() )
     }
 }
 
-export function showUserMonuments(monuments, userMonuments) {
+export function showUserMonuments(userMonuments) {
     return {
         type: SHOW_USER_MONUMENTS,
-        monuments: monuments.filter(( monument )=> userMonuments.indexOf(monument.id.toString()) !== -1)
+        monuments: userMonuments
     }
 }
 
-export function showVisitedMonuments(monuments, visitedMonuments) {
+export function showVisitedMonuments(visitedMonuments) {
     return {
         type: SHOW_VISITED_MONUMENTS,
-        monuments: monuments.filter(( monument )=> visitedMonuments.indexOf(monument.id.toString()) !== -1)
+        monuments: visitedMonuments
     }
 }

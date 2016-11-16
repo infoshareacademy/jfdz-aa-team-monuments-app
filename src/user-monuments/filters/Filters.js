@@ -27,8 +27,8 @@ const Filters = ({
 }) => (
     <Row className="show-grid filter-buttons"  >
         <Button onClick={()=> showAllMonuments(monuments) } >All</Button>
-        <Button onClick={()=> showUserMonuments(monuments , userMonuments) } >My List</Button>
-        <Button onClick={()=> showVisitedMonuments(monuments, visitedMonuments) } >Visited</Button>
+        <Button onClick={()=> showUserMonuments(userMonuments) } >My List</Button>
+        <Button onClick={()=> showVisitedMonuments(visitedMonuments) } >Visited</Button>
     </Row>
 )
 

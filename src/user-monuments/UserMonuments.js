@@ -8,18 +8,22 @@ import UserList from './user-list/UserList'
 
 const mapStateToProps = (state) => ({
     monuments: state.monumentsListData.monuments,
-    currentList: state.monumentsFilter.currentList,
-    userMonuments: state.login.userData.userMonuments
+    currentFilter: state.monumentsFilter.currentFilter,
+    userMonuments: state.login.userData.userMonuments,
+    visitedMonuments: state.login.userData.visitedMonuments
 })
 
 const UserMonuments = ({
     monuments,
     currentList,
-    userMonuments
+    currentFilter,
+    userMonuments,
+    visitedMonuments
 }) => (
     <Grid>
         <Filters />
-        <UserList currentList={currentList} userMonuments={userMonuments} />
+        <UserList currentFilter={currentFilter} monuments={monuments} userMonuments={userMonuments} visitedMonuments={visitedMonuments}/>
     </Grid>
 )
+
 export default connect(mapStateToProps )(UserMonuments)
