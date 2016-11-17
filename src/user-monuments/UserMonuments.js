@@ -4,6 +4,7 @@ import { Grid } from 'react-bootstrap'
 import './UserMonuments.css'
 
 import Filters from './filters/Filters'
+import MapFiltered from './map/MapFiltered'
 import UserList from './user-list/UserList'
 
 const mapStateToProps = (state) => ({
@@ -15,13 +16,13 @@ const mapStateToProps = (state) => ({
 
 const UserMonuments = ({
     monuments,
-    currentList,
     currentFilter,
     userMonuments,
     visitedMonuments
 }) => (
     <Grid>
         <Filters />
+        <MapFiltered currentFilter={currentFilter} monuments={monuments} userMonuments={userMonuments} visitedMonuments={visitedMonuments}/>
         <UserList currentFilter={currentFilter} monuments={monuments} userMonuments={userMonuments} visitedMonuments={visitedMonuments}/>
     </Grid>
 )
