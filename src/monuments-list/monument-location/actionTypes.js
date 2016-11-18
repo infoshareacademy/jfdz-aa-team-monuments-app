@@ -1,4 +1,4 @@
 export const DISPLAY_MONUMENT_LOCATION =  'monument-location/DISPLAY_MONUMENT_LOCATION'
-export const TOGGLE_MONUMENT_DESCRIPTION =  'monument-location/TOGGLE_MONUMENT_DESCRIPTION'
 export const HIDE_MONUMENT_LOCATION =  'monument-location/HIDE_MONUMENT_LOCATION'
+export const GET_USER_LOCATION =  'monument-location/GET_USER_LOCATION'
  
