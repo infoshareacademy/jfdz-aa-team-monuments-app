@@ -48,15 +48,15 @@ const UserButtons = ({
     addToVisited
 })=> (
     <div>
-        <Button className="monument-user-buttons" bsStyle ="warning" onClick={() => addMonument(userId, currentMonumentId, userMonuments) } >
+        <Button className="monument-user-buttons" bsStyle="warning" onClick={() => addMonument(userId, currentMonumentId, userMonuments) } >
             <Glyphicon glyph="plus" />
         </Button>
             
-        <Button className="monument-user-buttons" bsStyle ="info" onClick={() => removeMonument(userId, currentMonumentId, userMonuments) } >
+        <Button className="monument-user-buttons" bsStyle="info" onClick={() => removeMonument(userId, currentMonumentId, userMonuments) } >
             <Glyphicon glyph="minus" />
         </Button>
     
-        <Button className="monument-user-buttons" bsStyle ="danger" onClick={() => addToVisited(userId, currentMonumentId, visitedMonuments) } >
+        <Button className="monument-user-buttons" bsStyle={visitedMonuments.indexOf(currentMonumentId.toString())=== -1 ? "default" : "success" } onClick={() => addToVisited(userId, currentMonumentId, visitedMonuments) } >
             <Glyphicon glyph="ok" />
         </Button>
     </div>
