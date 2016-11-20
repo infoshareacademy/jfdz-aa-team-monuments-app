@@ -9,7 +9,7 @@ const createMap = {
         });
         let userMarker;
         userMarker = new google.maps.Marker({
-            position: new google.maps.LatLng( userLon, userLat ),
+            position: new google.maps.LatLng( parseFloat(userLon), parseFloat(userLat) ),
             map: userMap
         });
     },
