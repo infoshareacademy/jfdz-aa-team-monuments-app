@@ -17,10 +17,6 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 class MonumentMap extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    
     componentDidMount() {
         const that = this.props;
         getLocation();
@@ -33,15 +29,13 @@ class MonumentMap extends React.Component {
             let lon = position.coords.longitude.toString();
             that.getUserLocation(lat,lon);
 
-            that.monumentLocation.hasOwnProperty('lat')
-                ? createMap.createMonumentMap(that.monumentLat, that.monumentLon, that.userLat, that.userLon )
-                : createMap.createUserMap(lon,lat)
+            showDefaultPosition(lon, lat);
         }
 
-        function showDefaultPosition() {
+        function showDefaultPosition(lon = that.userLon, lat = that.userLat) {
             that.monumentLocation.hasOwnProperty('lat')
                 ? createMap.createMonumentMap(that.monumentLat, that.monumentLon, that.userLat, that.userLon )
-                : createMap.createUserMap(that.userLon, that.userLat)
+                : createMap.createUserMap(lon, lat)
         }
     }
 
@@ -52,7 +46,7 @@ class MonumentMap extends React.Component {
     render() {
         return (
             <div>
-                <div id="monument-map" className="mapContainer"> </div>
+                <div id="monument-map" className="mapContainer"></div>
             </div>
         )
     }
