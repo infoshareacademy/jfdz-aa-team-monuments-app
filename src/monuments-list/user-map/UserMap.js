@@ -1,5 +1,6 @@
 import React from 'react'
 import './UserMap.css'
+import { getUserLocation } from '../monument-location/actionCreators'
 import { connect } from 'react-redux'
 import createMap from './utilities'
 
@@ -11,27 +12,44 @@ const mapStateToProps = (state) => ({
     userLon: state.monumentLocationData.userLocation.lon
 })
 
+const mapDispatchToProps = (dispatch) => ({
+    getUserLocation: (userLat, userLon) => dispatch(getUserLocation(userLat,userLon))
+})
+
 class MonumentMap extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    
     componentDidMount() {
-        this.props.monumentLocation.hasOwnProperty('lat')
-            ? createMap.createMonumentMap(this.props.monumentLat, this.props.monumentLon, this.props.userLat, this.props.userLon )
-            : createMap.createUserMap(this.props.userLon, this.props.userLat)
+        const that = this.props;
+        getLocation();
+        function getLocation() {
+            navigator.geolocation ? navigator.geolocation.getCurrentPosition(showYourPosition) : showDefaultPosition()
+        }
+
+        function showYourPosition(position) {
+            let lat = position.coords.latitude.toString();
+            let lon = position.coords.longitude.toString();
+            that.getUserLocation(lat,lon);
+
+            showDefaultPosition(lon, lat);
+        }
+
+        function showDefaultPosition(lon = that.userLon, lat = that.userLat) {
+            that.monumentLocation.hasOwnProperty('lat')
+                ? createMap.createMonumentMap(that.monumentLat, that.monumentLon, that.userLat, that.userLon )
+                : createMap.createUserMap(lon, lat)
+        }
     }
 
     componentWillReceiveProps(newProps) {
-        createMap.createMonumentMap(newProps.monumentLat, newProps.monumentLon, this.props.userLat, this.props.userLon )
+        createMap.createMonumentMap(newProps.monumentLat, newProps.monumentLon, newProps.userLat, newProps.userLon )
     }
 
     render() {
         return (
             <div>
-                <div id="monument-map" className="mapContainer"> </div>
+                <div id="monument-map" className="mapContainer"></div>
             </div>
         )
     }
 }
-export default connect(mapStateToProps)(MonumentMap)
+
+export default connect(mapStateToProps, mapDispatchToProps)(MonumentMap)
