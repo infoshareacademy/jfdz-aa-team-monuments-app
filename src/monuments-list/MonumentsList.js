@@ -16,7 +16,7 @@ const MonumentsList = ({
     displayingList,
     monuments,
 }) => (
-    <Grid>
+    <Grid className="MonumentsList">
         <Intro />
         <MonumentMap />
         <List displayingList={displayingList} monuments={monuments} />

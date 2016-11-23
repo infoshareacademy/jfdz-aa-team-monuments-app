@@ -1,16 +1,17 @@
 import React from 'react'
 import {Link} from 'react-router'
-import {Button} from 'react-bootstrap'
+import {Navbar, Nav, NavItem, Button} from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { logOut } from './login/actionCreators';
+import { logOut } from './login/actionCreators'
 import { browserHistory } from 'react-router'
+import logo from './logo.svg'
+import './App.css'
 
-import './App.css';
-
+import Login from './login/Login'
 import Footer from './footer/Footer'
 
 const mapStateToProps = (state) => ({
-  loggedIn: state.login.loggedIn,
+  loggedIn: state.login.loggedIn
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -32,33 +33,41 @@ class App extends React.Component {
     if (!this.props.loggedIn) {
       return null;
     }
-
-    return (<span>
-      <Link to='map' ><Button> Mapa </Button></Link>
-      <Link to='list' ><Button> Lista </Button></Link>
-      <Link to='user-monuments' ><Button> Moje </Button></Link>
-    </span>);
+      return (
+        <Nav className="nav-elements" pullRight>
+            <NavItem><Link to='list' ><Button> Znajdź zabytek </Button></Link></NavItem>
+            <NavItem><Link to='user-monuments'><Button> Moje zabytki </Button> </Link></NavItem>
+        </Nav> )
   }
 
   renderLoginButton() {
     if (this.props.loggedIn) {
-      return <Button onClick={this.logOut.bind(this)}>Log out</Button>;
+      return <Button bsStyle="danger" className="login-button" onClick={this.logOut.bind(this)}>Log out</Button>;
     }
-    return <Link to='login' ><Button> Login </Button></Link>;
+    return <Login />;
   }
 
   render() {
-    return (
-      < div className="App">
-        <div className="App-header">
-          <Link to='/' ><Button> #Home </Button></Link>
-          {this.renderLoggedInLinks()}
-          {this.renderLoginButton()}
-        </div>
+      return (
+          < div className="App">
+              <Navbar  id="App-navigation" inverse>
+                  <Navbar.Header >
+                      <div className="logo-container">
+                          <Link to='/' >
+                                  <img src={logo} className="App-logo" alt="logo" />
+                          </Link>
+                      </div>
+                  </Navbar.Header>
 
-          {this.props.children}
-          <Footer />
+                  <Nav className="login-button" pullRight>
+                      <NavItem>{this.renderLoginButton()}</NavItem>
+                  </Nav>
+                  {this.renderLoggedInLinks()}
+                  
+              </Navbar>
 
+              {this.props.children}
+        <Footer />
       </div>
     );
   }
