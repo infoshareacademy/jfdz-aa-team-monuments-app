@@ -8,20 +8,32 @@
 }
 
 .App-logo {
-  height: 100px;
-}
-
-.logo-container {
+  height: 90px;
 }
 
 .login-button {
-  margin-top: 10px;
+  margin-top: 5px;
+  text-align: center;
 }
 
-.nav-elements>li>a {
-  margin-top: 30px;
-  padding: 5px 2px;
+.navbar-toggle {
+  margin-top: 25px;
 }
 
+.nav-elements {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.nav-element {
+  font-size: 17px;
+  padding: 5px 15px;
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.nav-element:hover {
+  color: #dddddd !important;
+}
 
 

@@ -34,9 +34,9 @@ class App extends React.Component {
       return null;
     }
       return (
-        <Nav className="nav-elements" pullRight>
-            <NavItem><Link to='list' ><Button> Znajdź zabytek </Button></Link></NavItem>
-            <NavItem><Link to='user-monuments'><Button> Moje zabytki </Button> </Link></NavItem>
+        <Nav className="nav-elements">
+            <NavItem><Link className="nav-element" to='list' > Znajdź zabytek </Link></NavItem>
+            <NavItem><Link className="nav-element" to='user-monuments'> Moje zabytki </Link></NavItem>
         </Nav> )
   }
 
@@ -52,18 +52,20 @@ class App extends React.Component {
           < div className="App">
               <Navbar  id="App-navigation" inverse>
                   <Navbar.Header >
-                      <div className="logo-container">
-                          <Link to='/' >
-                                  <img src={logo} className="App-logo" alt="logo" />
-                          </Link>
-                      </div>
+                      <Link to='/' >
+                          <img src={logo} className="App-logo" alt="logo" />
+                      </Link>
+                      <Navbar.Toggle />
                   </Navbar.Header>
 
-                  <Nav className="login-button" pullRight>
-                      <NavItem>{this.renderLoginButton()}</NavItem>
-                  </Nav>
-                  {this.renderLoggedInLinks()}
-                  
+                  <Navbar.Collapse>
+                      {this.renderLoggedInLinks()}
+                      
+                      <Nav className="login-button" pullRight>
+                          <NavItem>{this.renderLoginButton()}</NavItem>
+                      </Nav>
+
+                  </Navbar.Collapse>
               </Navbar>
 
               {this.props.children}

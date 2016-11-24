@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Login = ({ userData, loggedIn, loginSuccess }) => (
               <GoogleLogin
-                  className="btn btn-success btn-md"
+                  className="btn btn-success google-login-button"
                   clientId="125511495520-i1vk2u8c4f9nk6bmtb5i8evculbqfvur.apps.googleusercontent.com"
                   onSuccess={(x) => loginSuccess(x)}
                   onFailure={(x) => alert(x)}>
