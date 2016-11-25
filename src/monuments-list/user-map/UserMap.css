@@ -2,5 +2,6 @@
     width: 100%;
     max-height: 350px;
     box-shadow: #9b9b9b 0 0 4px 2px;
-
+    margin-top: 5px;
+    margin-bottom: 35px;
 }

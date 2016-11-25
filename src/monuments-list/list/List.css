@@ -1,10 +1,9 @@
-.monuments-list-header {
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
 .monuments-list-container {
     border-radius: 5px;
+}
+
+.active {
+    background-color: #eee;
 }
 
 .monuments-list-container h4 {
