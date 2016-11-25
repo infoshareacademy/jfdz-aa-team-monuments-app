@@ -36,4 +36,8 @@
   color: #dddddd !important;
 }
 
+#user-greeting {
+  color: white;
+  display: inline-block;
+}
 

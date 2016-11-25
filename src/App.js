@@ -11,22 +11,23 @@ import Login from './login/Login'
 import Footer from './footer/Footer'
 
 const mapStateToProps = (state) => ({
-  loggedIn: state.login.loggedIn
+    loggedIn: state.login.loggedIn,
+    userName: state.login.userData.firstName
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  logOut: () => dispatch(logOut())
+    logOut: () => dispatch(logOut())
 });
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.logOut = this.logOut.bind(this);
+    constructor(props) {
+        super(props);
+        this.logOut = this.logOut.bind(this);
   }
-
+    
   logOut() {
-    this.props.logOut();
-    browserHistory.push('/')
+      this.props.logOut();
+      browserHistory.push('/')
   }
 
   renderLoggedInLinks() {
@@ -42,14 +43,14 @@ class App extends React.Component {
 
   renderLoginButton() {
     if (this.props.loggedIn) {
-      return <Button bsStyle="danger" className="login-button" onClick={this.logOut.bind(this)}>Log out</Button>;
+      return <Button bsStyle="danger" className="login-button" onClick={this.logOut.bind(this)}>{this.props.userName} | Log out</Button>;
     }
     return <Login />;
   }
 
   render() {
       return (
-          < div className="App">
+          <div className="App">
               <Navbar  id="App-navigation" inverse>
                   <Navbar.Header >
                       <Link to='/' >
@@ -60,7 +61,6 @@ class App extends React.Component {
 
                   <Navbar.Collapse>
                       {this.renderLoggedInLinks()}
-                      
                       <Nav className="login-button" pullRight>
                           <NavItem>{this.renderLoginButton()}</NavItem>
                       </Nav>

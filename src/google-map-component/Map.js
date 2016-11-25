@@ -50,11 +50,14 @@ export default class Map extends React.Component {
     render() {
         return (
             <div>
-                <div id="map" className="mapContainer"></div>
                 <div className="home-page-intro">
-                    <h2>Hello!</h2>
-                    <p>Hello my beautiful world</p>
+                    <h3>Odkryj zabytki Gdańska</h3>
+                    <p>
+                        Gdańskie Stare Miasto to wymarzone miejsce na spokojny spacer szlakiem zabytków.<br/>
+                       <strong>Pokażemy Ci te najciekawsze, bez których Twoja wyprawa nie może się odbyć.</strong>
+                    </p>
                 </div>
+                <div id="map" className="mapContainer"></div>
             </div>
         )
     }

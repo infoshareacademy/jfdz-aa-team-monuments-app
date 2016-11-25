@@ -12,14 +12,9 @@ const mapStateToProps = (state)=> ({
 
 const mapDispatchToProps = (dispatch)=> ({
     addMonument: (userId, monumentId, monuments) => {
-        let newMonumentsList = monuments.indexOf(monumentId.toString()) === -1 ? monuments.concat([monumentId]) : console.log('Already on your list');
-        let userData = {
-            userMonuments: newMonumentsList
-        };
-        dispatch(updateUserData(userId, userData));
-    },
-    removeMonument: (userId, monumentId, monuments) => {
-        let newMonumentsList = monuments.filter(monument=> monument !== monumentId.toString());
+        let newMonumentsList = monuments.indexOf(monumentId.toString()) === -1
+            ? monuments.concat([monumentId])
+            : monuments.filter(monument=> monument !== monumentId.toString());
         let userData = {
             userMonuments: newMonumentsList
         };
@@ -45,15 +40,11 @@ const UserButtons = ({
     currentMonumentId,
     addMonument,
     removeMonument,
-    addToVisited
+    addToVisited,
 })=> (
     <div>
-        <Button className="monument-user-buttons" bsStyle="warning" onClick={() => addMonument(userId, currentMonumentId, userMonuments) } >
-            <Glyphicon glyph="plus" />
-        </Button>
-            
-        <Button className="monument-user-buttons" bsStyle="info" onClick={() => removeMonument(userId, currentMonumentId, userMonuments) } >
-            <Glyphicon glyph="minus" />
+        <Button className="monument-user-buttons" bsStyle={userMonuments.indexOf(currentMonumentId.toString())=== -1 ? "warning" : "info" } onClick={() => addMonument(userId, currentMonumentId, userMonuments) } >
+            {userMonuments.indexOf(currentMonumentId.toString())=== -1 ? <Glyphicon glyph="plus" /> : <Glyphicon glyph="minus" /> }
         </Button>
     
         <Button className="monument-user-buttons" bsStyle={visitedMonuments.indexOf(currentMonumentId.toString())=== -1 ? "default" : "success" } onClick={() => addToVisited(userId, currentMonumentId, visitedMonuments) } >
