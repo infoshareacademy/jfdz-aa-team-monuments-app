@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
     monumentLocation: state.monumentLocationData.monumentLocation ,
     monumentLat: state.monumentLocationData.monumentLocation.lat ,
     monumentLon: state.monumentLocationData.monumentLocation.lon,
+    monumentName: state.monumentLocationData.monumentLocation.name,
     userLat: state.monumentLocationData.userLocation.lat,
     userLon: state.monumentLocationData.userLocation.lon
 })
@@ -47,7 +48,10 @@ class MonumentMap extends React.Component {
         return (
             <div>
                 <div id="monument-map" className="mapContainer"></div>
-                <h4 id="current-target">Do którego zabytku chcesz dotrzeć? </h4>
+                <h4 id="current-target">{ this.props.monumentName === ""
+                    ? "Jaki jest Twój aktualny cel?" : "Twój aktualny cel to - "}
+                    <strong> {this.props.monumentName} </strong>
+                </h4>
             </div>
         )
     }

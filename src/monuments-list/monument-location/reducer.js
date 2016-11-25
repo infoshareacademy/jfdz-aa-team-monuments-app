@@ -9,7 +9,9 @@ const initialState = {
         lat: '54.351372',
         lon: '18.653138'
     },
-    monumentLocation: { }
+    monumentLocation: {
+        name: ""
+    }
 }
 
 export default (state = initialState, action) => {

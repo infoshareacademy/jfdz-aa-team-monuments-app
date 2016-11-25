@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
         //     $('.caption').removeClass('active');
         //     $(this).parents('.caption').addClass('active');
         // });
-        $('#current-target').html('Twój aktualny cel to  <strong>' + name + '</strong>' );
+        // $('#current-target').html('Twój aktualny cel to  <strong>' + name + '</strong>' );
         dispatch (displayMonumentLocation(lat, lon, name) )
     }
 })
