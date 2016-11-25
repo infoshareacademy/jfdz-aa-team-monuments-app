@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect}  from 'react-redux'
+import $ from 'jquery'
 import { displayMonumentLocation } from './actionCreators'
 import { Button , Glyphicon } from 'react-bootstrap'
 import './MonumentLocation.css'
@@ -10,7 +11,12 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    displayMonumentLocation: (lat, lon) => dispatch (displayMonumentLocation(lat,lon) ) 
+    displayMonumentLocation: (lat, lon) => {
+        $('button', this).off('click').click(function(){
+            $('.caption').removeClass('active');
+            $(this).parents('.caption').addClass('active');
+        });
+        dispatch (displayMonumentLocation(lat,lon) )}
 })
 
 const MonumentLocation = ({

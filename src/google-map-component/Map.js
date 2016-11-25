@@ -16,8 +16,9 @@ export default class Map extends React.Component {
                     this.locations = data;
                     var google = window.google;
                     var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 15,
+                        zoom: 16,
                         center: new google.maps.LatLng(54.351372, 18.653138),
+                        scrollwheel: false,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     });
 
@@ -34,9 +35,8 @@ export default class Map extends React.Component {
                         google.maps.event.addListener(marker, 'click', (function(marker, i) {
                             return function() {
                                 infowindow.setContent(`
-<h1>${_this.locations[i].name}</h1>
+<h3>${_this.locations[i].name}</h3>
 <img class="map-img" src="${_this.locations[i].imageUrl}" />
-<div class="description">${_this.locations[i].description}</div>
 `);
                                 infowindow.open(map, marker);
                             }
@@ -49,7 +49,15 @@ export default class Map extends React.Component {
 
     render() {
         return (
-            <div id="map" className="mapContainer">
+            <div>
+                <div className="home-page-intro">
+                    <h3>Odkryj zabytki Gdańska</h3>
+                    <p>
+                        Gdańskie Stare Miasto to wymarzone miejsce na spokojny spacer szlakiem zabytków.<br/>
+                       <strong>Pokażemy Ci te najciekawsze, bez których Twoja wyprawa nie może się odbyć.</strong>
+                    </p>
+                </div>
+                <div id="map" className="mapContainer"></div>
             </div>
         )
     }

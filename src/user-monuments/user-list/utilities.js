@@ -4,4 +4,5 @@ const userFilters = {
     visitedOnly: (item, visitedMonuments) => visitedMonuments.indexOf(item.id.toString()) !== -1
 }
 
+
 export default userFilters

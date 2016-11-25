@@ -20,7 +20,7 @@ const UserMonuments = ({
     userMonuments,
     visitedMonuments
 }) => (
-    <Grid>
+    <Grid className="UserMonuments">
         <Filters />
         <MapFiltered currentFilter={currentFilter} monuments={monuments} userMonuments={userMonuments} visitedMonuments={visitedMonuments}/>
         <UserList currentFilter={currentFilter} monuments={monuments} userMonuments={userMonuments} visitedMonuments={visitedMonuments}/>
