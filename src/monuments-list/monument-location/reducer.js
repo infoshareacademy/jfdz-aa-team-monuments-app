@@ -19,7 +19,8 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {
                 monumentLocation: {
                     lat: action.monumentLat,
-                    lon: action.monumentLon
+                    lon: action.monumentLon,
+                    name: action.monumentName
                 }
             })
 

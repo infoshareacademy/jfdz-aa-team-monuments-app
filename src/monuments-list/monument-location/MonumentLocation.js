@@ -11,20 +11,23 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    displayMonumentLocation: (lat, lon) => {
-        $('button', this).off('click').click(function(){
-            $('.caption').removeClass('active');
-            $(this).parents('.caption').addClass('active');
-        });
-        dispatch (displayMonumentLocation(lat,lon) )}
+    displayMonumentLocation: (lat, lon, name) => {
+        // $('button', this).off('click').click(function(){
+        //     $('.caption').removeClass('active');
+        //     $(this).parents('.caption').addClass('active');
+        // });
+        $('#current-target').html('Twój aktualny cel to  <strong>' + name + '</strong>' );
+        dispatch (displayMonumentLocation(lat, lon, name) )
+    }
 })
 
 const MonumentLocation = ({
     currentMonumentLat,
     currentMonumentLon,
+    currentMonumentName,
     displayMonumentLocation ,
 }) => (
-        <Button className="monument-location-button" bsStyle ="warning" onClick={() => displayMonumentLocation(currentMonumentLat , currentMonumentLon) } >
+        <Button className="monument-location-button" bsStyle ="warning" onClick={() => displayMonumentLocation(currentMonumentLat , currentMonumentLon, currentMonumentName ) } >
             <Glyphicon glyph="map-marker" />
         </Button>
 )

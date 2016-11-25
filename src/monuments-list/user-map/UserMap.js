@@ -47,6 +47,7 @@ class MonumentMap extends React.Component {
         return (
             <div>
                 <div id="monument-map" className="mapContainer"></div>
+                <h4 id="current-target">Do którego zabytku chcesz dotrzeć? </h4>
             </div>
         )
     }
