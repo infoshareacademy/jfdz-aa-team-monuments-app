@@ -10,6 +10,7 @@ const initialState = {
         firstName: '',
         lastName: '',
         userId: '',
+        userImage: '',
         userMonuments: [],
         visitedMonuments: []
     },

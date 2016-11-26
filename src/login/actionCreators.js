@@ -14,6 +14,7 @@ export function loginSuccess (userData) {
             firstName: userData.firstName,
             lastName: userData.lastName,
             userId: userData.userId,
+            userImage: userData.userImage,
             userMonuments: userData.userMonuments || [],
             visitedMonuments: userData.visitedMonuments || []
         }
@@ -40,7 +41,7 @@ export function loginFailure() {
 }
 
 export function updateUserData(userEmail, newData) {
-    console.log('zapisuje to gowno', newData);
+    console.log('zapisuje dane', newData);
     return dispatch => {
         dispatch({type: 'UPDATING_DATA_START'});
         return fetch('https://monuments-data.herokuapp.com/api/userData/' + userEmail, {
@@ -96,6 +97,7 @@ export function persistUserData(userData) {
                     firstName: userData.givenName,
                     lastName: userData.familyName,
                     userId: userData.email,
+                    userImage: userData.imageUrl,
                     userMonuments: userData.userMonuments || [],
                     visitedMonuments: userData.visitedMonuments || []
                 })

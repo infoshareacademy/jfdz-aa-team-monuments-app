@@ -8,6 +8,7 @@ import logo from './logo.svg'
 import './App.css'
 
 import Login from './login/Login'
+import UserProfile from './user-profile/UserProfile'
 import Footer from './footer/Footer'
 
 const mapStateToProps = (state) => ({
@@ -36,8 +37,9 @@ class App extends React.Component {
     }
       return (
         <Nav className="nav-elements">
-            <NavItem><Link className="nav-element" to='list' > Znajdź zabytek </Link></NavItem>
-            <NavItem><Link className="nav-element" to='user-monuments'> Moje zabytki </Link></NavItem>
+            <NavItem><Link className="nav-element" to='list' > znajdź zabytek </Link></NavItem>
+            <NavItem><Link className="nav-element" to='user-monuments'> moje zabytki </Link></NavItem>
+            <NavItem><Link className="nav-element" to='user'> profil użytkownika </Link></NavItem>
         </Nav> )
   }
 
@@ -64,12 +66,12 @@ class App extends React.Component {
                       <Nav className="login-button" pullRight>
                           <NavItem>{this.renderLoginButton()}</NavItem>
                       </Nav>
-
+                      
                   </Navbar.Collapse>
               </Navbar>
-
-              {this.props.children}
-        <Footer />
+              
+          {this.props.children}
+          <Footer />
       </div>
     );
   }
