@@ -12,11 +12,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     displayMonumentLocation: (lat, lon, name) => {
-        // $('button', this).off('click').click(function(){
-        //     $('.caption').removeClass('active');
-        //     $(this).parents('.caption').addClass('active');
-        // });
-        // $('#current-target').html('Twój aktualny cel to  <strong>' + name + '</strong>' );
+        $('button', this).off('click').click(function(){
+            $('.caption').removeClass('active');
+            $(this).parents('.caption').addClass('active');
+        });
         dispatch (displayMonumentLocation(lat, lon, name) )
     }
 })
