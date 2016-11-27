@@ -1,0 +1,13 @@
+.user-info-row {
+    margin: 5px 0;
+}
+
+.user-info-details-col {
+    padding: 10px 5px;
+}
+
+#user-photo {
+    margin: 5px 5px 5px 0;
+    padding: 5px;
+    box-shadow: #2c2c2c 0 0 5px 1px;
+}

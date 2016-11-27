@@ -1,4 +1,29 @@
 .app-footer {
+    text-align: center;
     background-color: #cccccc;
     padding: 20px;
+}
+
+.app-footer h5 {
+    margin: 5px 5px 10px 5px;
+
+}
+
+#footer-logo {
+    max-height: 40px;
+}
+
+.app-footer ul{
+    list-style: none;
+    margin: 5px 0;
+    padding: 2px;
+}
+
+.app-footer ul li{
+    display: inline;
+    padding: 5px;
+}
+
+.app-footer ul li a{
+    text-decoration: none;
 }

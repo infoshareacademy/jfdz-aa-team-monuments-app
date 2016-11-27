@@ -1,33 +1,35 @@
 import React from 'react'
+import { connect } from 'react-redux' 
 import './Login.css'
-import {Button} from 'react-bootstrap'
+import GoogleLogin from 'react-google-login'
+import { loginSuccess, loginFailure, logOut, persistUserData } from './actionCreators'
 
-export default class Login extends React.Component {
-    constructor(props) {
-        super(props);
+import {Glyphicon} from 'react-bootstrap'
 
-        this.onClickChangeButtonText = this.onClickChangeButtonText.bind(this);
+const mapStateToProps = (state) => ({
+    userData: state.login.userData,
+    loggedIn: state.login.loggedIn,
+    loginSuccess: {}
+})
 
-        this.state = {
-           buttonText: "login"
-        }
-    }
+const mapDispatchToProps = (dispatch) => ({
+    loginSuccess: (userData) => {
+        dispatch(persistUserData(userData.profileObj));
+    },
+    loginFailure: () => dispatch(loginFailure()),
+    logOut: () => dispatch(logOut())
+})
 
-    onClickChangeButtonText() {
-        this.state.buttonText === "login"
-        ? this.setState({buttonText:"logout"})
-        : this.setState({buttonText:"login"})
+const Login = ({ userData, loggedIn, loginSuccess }) => (
+              <GoogleLogin
+                  className="btn btn-success google-login-button"
+                  // clientId="125511495520-i1vk2u8c4f9nk6bmtb5i8evculbqfvur.apps.googleusercontent.com"
+                  clientId="807165920059-m7p04n03op9ai52k1cv49lsju9oesbsj.apps.googleusercontent.com"
+                  onSuccess={(x) => loginSuccess(x)}
+                  onFailure={(x) => alert(x)}>
+                  <Glyphicon glyph="user" />
+                  <span className="login-btn-text">Zaloguj się - Google</span>
+              </GoogleLogin>
+)
 
-    }
-
-
-    render() {
-        return(
-            <div className="Login-container">
-                <h3>Login</h3>
-                <p>Welcome</p>
-                <Button onClick={this.onClickChangeButtonText}>{this.state.buttonText}</Button>
-            </div>
-        )
-    }
-}
+export default connect(mapStateToProps,mapDispatchToProps)(Login)

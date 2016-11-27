@@ -1,30 +1,80 @@
-import React from 'react';
+import React from 'react'
 import {Link} from 'react-router'
-import {Button} from 'react-bootstrap'
-import './App.css';
+import {Navbar, Nav, NavItem, Button} from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { logOut } from './login/actionCreators'
+import { browserHistory } from 'react-router'
+import logo from './logo.svg'
+import './App.css'
 
-import MonumentsIntro from './monuments-intro/MonumentsIntro';
-import Footer from './footer/Footer';
-import Map from './google-map-component/Map.js';
-import Login from './login/Login';
+import Login from './login/Login'
+import UserProfile from './user-profile/UserProfile'
+import Footer from './footer/Footer'
+
+const mapStateToProps = (state) => ({
+    loggedIn: state.login.loggedIn,
+    userName: state.login.userData.firstName
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    logOut: () => dispatch(logOut())
+});
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.logOut = this.logOut.bind(this);
+  }
+    
+  logOut() {
+      this.props.logOut();
+      browserHistory.push('/')
+  }
+
+  renderLoggedInLinks() {
+    if (!this.props.loggedIn) {
+      return null;
+    }
+      return (
+        <Nav className="nav-elements">
+            <NavItem><Link className="nav-element" to='list' > znajdź zabytek </Link></NavItem>
+            <NavItem><Link className="nav-element" to='user-monuments'> moje zabytki </Link></NavItem>
+            <NavItem><Link className="nav-element" to='user'> profil użytkownika </Link></NavItem>
+        </Nav> )
+  }
+
+  renderLoginButton() {
+    if (this.props.loggedIn) {
+      return <Button bsStyle="danger" className="login-button" onClick={this.logOut.bind(this)}>{this.props.userName} | Log out</Button>;
+    }
+    return <Login />;
+  }
+
   render() {
-    return (
-      < div className="App">
-        <div className="App-header">
-          <Link to='map' ><Button> Mapa </Button></Link>
-          <Link to='list' ><Button> Lista </Button></Link>
-          <Link to='login' ><Button> Login </Button></Link>
+      return (
+          <div className="App">
+              <Navbar  id="App-navigation" inverse>
+                  <Navbar.Header >
+                      <Link to='/' >
+                          <img src={logo} className="App-logo" alt="logo" />
+                      </Link>
+                      <Navbar.Toggle />
+                  </Navbar.Header>
 
-        </div>
-
+                  <Navbar.Collapse>
+                      {this.renderLoggedInLinks()}
+                      <Nav className="login-button" pullRight>
+                          <NavItem>{this.renderLoginButton()}</NavItem>
+                      </Nav>
+                      
+                  </Navbar.Collapse>
+              </Navbar>
+              
           {this.props.children}
           <Footer />
-
       </div>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App)

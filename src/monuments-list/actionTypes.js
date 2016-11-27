@@ -1,0 +1,2 @@
+export const REQUEST_MONUMENTS_LIST = 'monuments-list/REQUEST_MONUMENTS_LIST'
+export const RECEIVE_MONUMENTS_LIST = 'monument-list/RECEIVE_MONUMENTS_LIST'
